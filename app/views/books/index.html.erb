@@ -35,8 +35,11 @@
             </td>
             <td><%= book.body %></td>
             <% if book.user_id != current_user.id %>
-              <td><%= render 'favorites/favorite', book: book, favorite: @favorite %></td>
+              <td><%= render 'favorites/favorite', book: book %></td>
+            <% else %>
+              <td></td>
             <% end %>
+            <td>コメント数 <%= @posts.where(book_id: book.id).count %></td>
           </tr>
         <% end %>
       </tbody>  
