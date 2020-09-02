@@ -39,7 +39,7 @@
             <% else %>
               <td></td>
             <% end %>
-            <td>コメント数 <%= @posts.where(book_id: book.id).count %></td>
+            <td>コメント数 <%= @bookComments.where(book_id: book.id).count %></td>
           </tr>
         <% end %>
       </tbody>  
