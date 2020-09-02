@@ -5,16 +5,16 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_back fallback_location: root_path
+      redirect_back fallback_location: book_path(@post.book_id)
     else
-      redirect_back fallback_location: root_path
+      redirect_back fallback_location: book_path(@post.book_id)
     end
   end
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_back fallback_location: root_path
+    redirect_back fallback_location: book_path(@post.book_id)
   end
 
   private
