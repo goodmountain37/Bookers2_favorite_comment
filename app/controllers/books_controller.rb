@@ -21,15 +21,15 @@ class BooksController < ApplicationController
     @user = User.find(current_user.id)
     @book = Book.new
     @books = Book.all
-    @posts = Post.all
+    @bookComments = BookComment.all
   end
 
   def show
     @book = Book.new
     @book_show = Book.find(params[:id])
     @user = User.find(@book_show.user_id)
-    @post = Post.new
-    @posts = Post.all
+    @bookComment = BookComment.new
+    @bookComment_show = BookComment.where(book_id: params[:id])
   end
 
   def edit
